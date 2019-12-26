@@ -212,6 +212,7 @@ index 442a595..bee8a93 100755
  		spi_nand_set_rd_wr_op(chip);
 ```
 主要增加了wn25n01内部ecc判断
+20191226后面发现spi nand驱动中有对内部ecc进行判断 所以需要把增加的w25n01_turn_off_iecc函数删除,这里源码就不进行更新了
 ### spi nand镜像脚本制作
 参照
 [https://whycan.cn/t_1594.html](https://whycan.cn/t_1594.html)
