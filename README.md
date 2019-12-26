@@ -212,6 +212,7 @@ index 442a595..bee8a93 100755
  		spi_nand_set_rd_wr_op(chip);
 ```
 主要增加了wn25n01内部ecc判断
+
 20191226后面发现spi nand驱动中有对内部ecc进行判断 所以需要把增加的w25n01_turn_off_iecc函数删除,这里源码就不进行更新了
 ### spi nand镜像脚本制作
 参照
@@ -272,11 +273,17 @@ sync
 echo "done"
 ```
 其中将页大小和块大小值固定,只传输出文件和输入文件名
+
 由于f1c100s生成的spl镜像sunxi-spl.bin大小为固定值24576个字节，所以简化了脚本
+
 内部brom spi nand启动必需1KB对齐所以将spl镜像放大两倍后小于52KB,暂使用52K这个值
+
 也就是说spl镜像最大为52KB,同时uboot镜像的起始地址为0xd000(52KB)
+
 同时需要修改uboot源码include/configs/sunxi-common.h中的CONFIG_SYS_SPI_U_BOOT_OFFS为0xd000
+
 和CONFIG_SPL_PAD_TO为CONFIG_SYS_SPI_U_BOOT_OFFS
+
 这里有个地方要注意下，如果在FEL模式下运行uboot镜像，需要将CONFIG_SYS_SPI_U_BOOT_OFFS改回0x8000,不然sunxi-fel会报错
 ### 启动报错
 ```java
