@@ -1,4 +1,8 @@
 # f1c100s 128MB W25N01G spi nand调试记录
+## 最新源码   
+[uboot](https://github.com/hcly/uboot2018.01-f1c100s-base)  
+[kernel](https://github.com/hcly/linux5.2.0-f1c100s-base)    
+[filesystem and images](https://github.com/hcly/fs-f1c100s-base)  
 ## 镜像使用说明
 镜像位置images文件夹
 uboot-with-spl-usb.bin　FEL模式下使用的uboot镜像
