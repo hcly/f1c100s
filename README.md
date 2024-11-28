@@ -136,7 +136,7 @@ DONE
 
 #include <asm/arch/cpu.h>
 #include <linux/stringify.h>
-#define GZYS_USBBURN	1
+/* #define GZYS_USBBURN	1 */
 #ifdef CONFIG_OLD_SUNXI_KERNEL_COMPAT
 ```
 保存后在uboot源码根目录下执行./build.sh进行编译，最后输出信息如下
